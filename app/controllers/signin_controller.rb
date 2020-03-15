@@ -4,10 +4,11 @@ class SigninController < ApplicationController
 
 
 	def create
-		user = User.find_by(email: params[:email])
+		user = User.find_by!(email: params[:email])
 
 		if  user.authenticate(params[:password])
-			payload = JWTSession::Session.new(payload: payload, refresh_by_access_allowed: true)
+			payload = {user_id: user.id}
+			session = JWTSessions::Session.new(payload: payload, refresh_by_access_allowed: true)
 			tokens = session.login
 			response.set_cookie(JWTSession.access_cookie,
 							value: tokens[:access],
@@ -22,7 +23,7 @@ class SigninController < ApplicationController
 	def destroy
 		session = JWTSession::Session.new(payload: payload)
 		session.flush_by_access_payload
-		render json::ok
+		render json: :ok
 	end
 
 
