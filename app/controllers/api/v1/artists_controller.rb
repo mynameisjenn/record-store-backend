@@ -22,7 +22,7 @@ module Api
         @artist = Artist.new(artist_params)
 
         if @artist.save
-          render :show, status: :created, location: @artist
+          render :show, status: :created 
         else
           render json: @artist.errors, status: :unprocessable_entity
         end

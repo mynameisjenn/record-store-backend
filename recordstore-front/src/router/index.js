@@ -1,13 +1,10 @@
 import Vue from 'vue'
-// import axios from 'axios'
-// import VueAxios from 'vue-axios'
 import Router from 'vue-router'
-import Signin from '@/components/Signin.vue'
-// Vue.use(VueAxios, axios)
+import Signin from '@/components/Signin'
+
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',	
   routes: [
     {
       path: '/',

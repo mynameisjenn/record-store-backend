@@ -1,6 +1,6 @@
-# recordstore-frontend
+# recordstore-front
 
-> A vue.js frontend for a Ruby on Rails API
+> A Vue.js project
 
 ## Build Setup
 
